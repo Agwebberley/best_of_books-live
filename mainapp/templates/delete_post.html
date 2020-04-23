@@ -1,0 +1,28 @@
+
+{% extends 'base.html' %}
+<html>
+<head>
+	<title>{% block title %}Delete Post{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+
+{% if user.is_authenticated %}
+<center><h1>Delete Post</h1></center>
+<br>
+<h3>Delete: {{ post.title }}</h3>
+<div class="form-group">
+<form method="POST">
+	{% csrf_token %}
+	<strong>Are you sure?!</strong>
+	<br>
+	<button class="btn btn-secondary">Delete Post!</button>
+</form>
+</div>
+
+{% else %}
+<center><h1>You are NOT allowed here.  (Either Log In or SCRAM) <br> <a href="home.html">GO HOME</a></h1></center>
+{% endif %}
+{% endblock %}
+</body>
+</html>

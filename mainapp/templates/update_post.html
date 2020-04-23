@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+<html>
+<head>
+	<title>{% block title %}Edit post{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+
+{% if user.is_authenticated %}
+<center><h1>Update Post</h1></center>
+<br>
+<div class="form-group">
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button class="btn btn-secondary">Update</button>
+</form>
+</div>
+
+{% else %}
+<center><h1>You are NOT allowed here.  (Either Log In or SCRAM) <br> <a href="../../home.html">GO HOME</a></h1></center>
+
+{% endif %}
+{% endblock %}
+</body>
+</html>
