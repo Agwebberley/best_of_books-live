@@ -9,7 +9,7 @@ class Post(models.Model):
 	author = models.CharField(max_length=255)
 	reviewer = models.ForeignKey(User, on_delete=models.CASCADE)
 	post_date = models.DateField()
-	should_know = models.CharField()
+	should_know = models.CharField(max_length=255)
 	body = models.TextField()
 	def __str__(self):
 		return self.title + ' | ' + str(self.author)
