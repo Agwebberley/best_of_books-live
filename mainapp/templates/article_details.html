@@ -5,10 +5,12 @@
 
 
 <h1>{{ post.title }}</h1>
-<small>By: {{ post.author.first_name }} {{ post.author.last_name }} 
+<small>Reviewed By: {{ post.reviewer.first_name }} {{ post.reviewer.last_name }} 
 	{% if user.is_authenticated %} - <a href="{% url 'update_post' post.pk  %}">(edit)</a> - <a href="{% url 'delete_post' post.pk  %}">(delete)</a></small> {% endif %}
-<h4>Created: {{ post.post_date }} </h4>
+<h4>Reviewed: {{ post.post_date }} </h4>
 <br>
+<h5>You should know that this book contains: {{ post.should_know }}</h5>
+
 {{ post.body }}
 
 <br>
