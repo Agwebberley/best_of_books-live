@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
 from .forms import PostForm, EditForm
@@ -8,7 +9,12 @@ from django.urls import reverse_lazy
 class HomeView(ListView):
 	model = Post
 	template_name = "home.html"
-	ordering = ['-post_date']
+	ordering = ['-pub_date']
+
+	#if 'search' in request.GET:
+	#	search_term = request.GET['search']
+	#	posts = post.filter(text__icontains="search_term")
+
 	#ordering = ['-id']
 
 class ArticleDetailView(DetailView):
@@ -30,3 +36,6 @@ class DeletePostView(DeleteView):
 	model = Post
 	success_url = reverse_lazy('home')
 	template_name = 'delete_post.html'
+
+
+

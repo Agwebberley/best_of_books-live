@@ -25,7 +25,7 @@ SECRET_KEY = 'ihzq*m*4e#z!awy@i%znj7c@=%dm1vq^mog2cs5o975%at50^2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['bestofbooks.herokuapp.com', 'localhost', 'bestofbooks.tk']
+ALLOWED_HOSTS = ['bestofbooks.herokuapp.com', 'localhost', 'bestofbooks.tk', 'bestofbooks.com']
 
 
 # Application definition
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
     'mainapp',
     'members',
 ]
