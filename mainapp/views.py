@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post
+from .models import Post, Genre
 from .forms import PostForm, EditForm
 from django.urls import reverse_lazy
 
@@ -26,6 +26,13 @@ class AddPostView(CreateView):
 	form_class = PostForm
 	template_name = 'add_post.html'
 	#fields = '__all__'
+
+
+class AddGenreView(CreateView):
+	model = Genre
+	template_name = 'add_genre.html'
+	fields = '__all__'
+
 
 class UpdatePostView(UpdateView):
 	model = Post

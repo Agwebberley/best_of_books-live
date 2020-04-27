@@ -3,6 +3,7 @@
 {% block content %}
 
 {% if user.is_authenticated %}
+
 <br>
 <br>
 <center><h1>Info</h1></center>
@@ -24,10 +25,13 @@ Genre: The genre of the book (e.x Dystopian or Fantasy) <br>
 You Should Know: Enter any content that may be offensive (e.x. Spells, a little on the dark side) for language use * for vowels (e.x. D*mn) <br>
 Snippit: The snippit that will show on the homepage.  Think of it as a teaser. <br>
 Body: The content of your review (see guidlines above) <br>
-
+<br><br><br><br><br>
 
 </p>
 
+
+{% else %}
+<p>That didn't work</p>
 
 {% endif %}
 {% endblock %}

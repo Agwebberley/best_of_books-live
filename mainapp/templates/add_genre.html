@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+<html>
+<head>
+	<title>{% block title %}Add Genre{% endblock %}</title>
+</head>
+<body>
+{% block content %}
+
+
+{% if user.is_authenticated %}
+<center><h1>Add Genre</h1></center>
+<br>
+<div class="form-group">
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button class="btn btn-secondary">Add Genre</button>
+</form>
+</div>
+{% else %}
+<center><h1>You are NOT allowed here.  (Either Log In or SCRAM) <br> <a href="home.html">GO HOME</a></h1></center>
+{% endif %}
+{% endblock %}
+</body>
+</html>

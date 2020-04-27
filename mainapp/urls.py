@@ -1,6 +1,6 @@
 from django.urls import path
 #from . import views
-from .views import HomeView, AddPostView, ArticleDetailView, UpdatePostView, DeletePostView
+from .views import HomeView, AddPostView, ArticleDetailView, UpdatePostView, DeletePostView, AddGenreView
 from django.views.generic import TemplateView
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import PostSitemap
@@ -25,6 +25,8 @@ urlpatterns = [
     path(r'about', 
     TemplateView.as_view(template_name='about.html'),
     name='about'),
+    path('add_genre/', AddGenreView.as_view(), name="add_genre"),
+
 
 
 
