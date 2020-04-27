@@ -39,7 +39,7 @@ class EditForm(forms.ModelForm):
 			'author': forms.TextInput(attrs={'class': 'form-control'}),
 			#'reviewer': forms.Select(attrs={'class': 'form-control'}),
 			'pub_date': forms.DateInput(attrs={'class': 'form-control'}), 
-			'genre': forms.TextInput(attrs={'class': 'form-control'}),
+			'genre': forms.Select(choices=genre_list, attrs={'class': 'form-control'}),
 			'should_know': forms.TextInput(attrs={'class': 'form-control'}),
 			'snippit': forms.TextInput(attrs={'class': 'form-control'}),
 			'body': forms.Textarea(attrs={'class': 'form-control'}),
