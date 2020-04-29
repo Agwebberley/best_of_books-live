@@ -14,6 +14,7 @@ class Genre(models.Model):
 
 class Post(models.Model):
 	title = models.CharField(max_length=255)
+	slug = models.SlugField(max_length=255, null=False, unique=True)
 	reviewer = models.ForeignKey(User, on_delete=models.CASCADE)
 	author = models.CharField(max_length=255)
 	pub_date = models.DateField()
@@ -24,4 +25,4 @@ class Post(models.Model):
 	def __str__(self):
 		return self.title + ' | ' + str(self.author)
 	def get_absolute_url(self):
-		return reverse('article-detail', args=(str(self.id)))
+		return reverse('home')

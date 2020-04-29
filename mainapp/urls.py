@@ -15,10 +15,10 @@ urlpatterns = [
 
     path('sitemap.xml/', sitemap, {'sitemaps' : sitemaps } , name='sitemap'),
 	path('', HomeView.as_view(), name="home"),
-	path('article/<int:pk>', ArticleDetailView.as_view(), name="article-detail"),
+	path('article/<slug:slug>', ArticleDetailView.as_view(), name='article-detail'),
 	path('add_post/', AddPostView.as_view(), name="add_post"),
-	path('article/edit/<int:pk>', UpdatePostView.as_view(), name="update_post"),
-	path('article/<int:pk>/delete', DeletePostView.as_view(), name="delete_post"),
+	path('article/edit/<slug:slug>', UpdatePostView.as_view(), name="update_post"),
+	path('article/delete/<slug:slug>', DeletePostView.as_view(), name="delete_post"),
 	path(r'info', 
     TemplateView.as_view(template_name='info.html'),
     name='info'),

@@ -13,9 +13,9 @@
 
 <ul>
 {% for post in object_list %}
-	<li><a href="{% url 'article-detail' post.pk  %}">{{ post.title }}</a> - {{ post.reviewer }} - {{ post.genre }}
+	<li><a href="{% url 'article-detail' post.slug  %}">{{ post.title }}</a> - {{ post.reviewer }} - {{ post.genre }}
 
-		 {% if user.is_authenticated %} - <small><a href="{% url 'update_post' post.pk  %}">(edit)</a> - <a href="{% url 'delete_post' post.pk  %}">(delete)</a></small><br>{% endif %}
+		 {% if user.is_authenticated %} - <small><a href="{% url 'update_post' post.slug  %}">(edit)</a> - <a href="{% url 'delete_post' post.slug  %}">(delete)</a></small><br>{% endif %}
 	{{ post.snippit}}</li>
 {%endfor%}
 </ul>
