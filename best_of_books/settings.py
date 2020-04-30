@@ -131,7 +131,7 @@ LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
 
-ADS_GOOGLE_ADSENSE_CLIENT = ca-pub-9023559972378419  # 'ca-pub-xxxxxxxxxxxxxxxx'
+ADS_GOOGLE_ADSENSE_CLIENT = 'ca-pub-9023559972378419' # 'ca-pub-xxxxxxxxxxxxxxxx'
 
 ADS_ZONES = {
     'header': {
