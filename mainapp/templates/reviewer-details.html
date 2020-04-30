@@ -9,15 +9,20 @@
 
 {% block content %}
 
-<h1>Reviews</h1>
+<h3>Reviews by </h3>
 
 <ul>
-{% for post in object_list %}
-	<li><a href="{% url 'article-detail' post.slug  %}">{{ post.title }}</a> - {{ post.reviewer }} - <a href="{% url 'genre' post.genre %}">{{ post.genre }}</a>
+
+	<h1>Testtesttesttest</h1>
+
+	<li><a href="{% url 'article-detail' post.slug  %}">{{ post.title }}</a> - {{ post.reviewer }} - {{ post.genre }}
 
 		 {% if user.is_authenticated %} - <small><a href="{% url 'update_post' post.slug  %}">(edit)</a> - <a href="{% url 'delete_post' post.slug  %}">(delete)</a></small><br>{% endif %}
 	{{ post.snippit}}</li>
-{%endfor%}
+
+	<h2>Page does not exist...</h2>
+	
+
 </ul>
 
 {% endblock %}

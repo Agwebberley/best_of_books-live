@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 <html>
 <head>
-	<title>{% block title %}Best Of Books{% endblock %}</title>
+	<title>{% block title %}{{ genres }}{% endblock %}</title>
 </head>
 <body>
 
@@ -9,16 +9,27 @@
 
 {% block content %}
 
-<h1>Reviews</h1>
+{% if genre_posts %}
+
+<h1>{{ genres }} Reviews</h1>
+
 
 <ul>
-{% for post in object_list %}
-	<li><a href="{% url 'article-detail' post.slug  %}">{{ post.title }}</a> - {{ post.reviewer }} - <a href="{% url 'genre' post.genre %}">{{ post.genre }}</a>
+{% for post in genre_posts %}
+
+	<li><a href="{% url 'article-detail' post.slug  %}">{{ post.title }}</a> - {{ post.reviewer }} 
 
 		 {% if user.is_authenticated %} - <small><a href="{% url 'update_post' post.slug  %}">(edit)</a> - <a href="{% url 'delete_post' post.slug  %}">(delete)</a></small><br>{% endif %}
 	{{ post.snippit}}</li>
-{%endfor%}
+
+{% endfor %}
 </ul>
+
+{% else %}
+<h2>Sorry this page does not exist...</h2>
+
+{% endif%}
+
 
 {% endblock %}
 </body>

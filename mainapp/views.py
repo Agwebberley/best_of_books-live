@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from .models import Post, Genre
+from .models import Post, Genre, reviewers
 from .forms import PostForm, EditForm
 from django.urls import reverse_lazy
 
@@ -45,4 +45,23 @@ class DeletePostView(DeleteView):
 	template_name = 'delete_post.html'
 
 
+#class reviewerview(ListView):
+#	model = reviewers
+#	template_name = "reviewer_details.html"
+#	ordering = ['-pub_date']
 
+class reviewerhomeview(ListView):
+	model = reviewers
+	template_name = "reviewer_home.html"
+
+def GenreView(request, genres):
+	genre_posts = Post.objects.filter(genre=genres)
+	#ordering = ['-pub_date']
+	return render(request, 'genres.html', {"genres":genres.title(), 'genre_posts':genre_posts})
+
+
+def ReviewerView(request, reviewer):
+	reviewer_posts = Post.objects.filter(reviewer=reviewer)
+	#ordering = ['-pub_date']
+	#u = User.objects.get(username=username)
+	return render(request, 'reviewer-details.html', {"reviewers":reviewers, 'reviewer_posts':reviewer_posts})
