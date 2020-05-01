@@ -28,7 +28,7 @@ urlpatterns = [
     TemplateView.as_view(template_name='about.html'),
     name='about'),
     path('add_genre/', AddGenreView.as_view(), name="add_genre"),
-    path('reviewer/<int:reviewer>', ReviewerView, name='reviewer'),
+    path('reviewer/<reviewer>', ReviewerView, name='reviewer'),
     path('genre/<str:genres>', GenreView, name="genre"),
 
 

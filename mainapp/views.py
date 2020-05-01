@@ -62,6 +62,8 @@ def GenreView(request, genres):
 
 def ReviewerView(request, reviewer):
 	reviewer_posts = Post.objects.filter(reviewer=reviewer)
+	reviewer = Reviewer.objects.filter(reviewer__username = reviewer)
+
 	#ordering = ['-pub_date']
 	#u = User.objects.get(username=username)
 	return render(request, 'reviewer-details.html', {"reviewers":reviewers, 'reviewer_posts':reviewer_posts})
