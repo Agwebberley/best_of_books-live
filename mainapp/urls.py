@@ -30,7 +30,7 @@ urlpatterns = [
     path('add_genre/', AddGenreView.as_view(), name="add_genre"),
     path('reviewer/<int:reviewer>', ReviewerView, name='reviewer'),
     path('genre/<str:genres>', GenreView, name="genre"),
-    path('comments/', include('django_comments.urls')),
+
 
 
 
