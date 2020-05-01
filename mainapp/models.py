@@ -26,14 +26,3 @@ class Post(models.Model):
 		return self.title + ' | ' + str(self.author)
 	def get_absolute_url(self):
 		return reverse('home')
-
-class reviewers(models.Model):
-	reviewer = models.OneToOneField(User, on_delete=models.CASCADE)
-	bio = models.TextField()
-
-
-
-	def __str__(self):
-		return self.reviewer.username 
-	def get_absolute_url(self):
-		return reverse('home')
