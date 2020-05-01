@@ -4,6 +4,8 @@ from .views import HomeView, AddPostView, ArticleDetailView, GenreView, Reviewer
 from django.views.generic import TemplateView
 from django.contrib.sitemaps.views import sitemap
 from .sitemaps import PostSitemap
+from django.conf.urls import include
+
 
 
 sitemaps = {
@@ -27,7 +29,8 @@ urlpatterns = [
     name='about'),
     path('add_genre/', AddGenreView.as_view(), name="add_genre"),
     path('reviewer/<int:reviewer>', ReviewerView, name='reviewer'),
-    path('genre/<str:genres>', GenreView, name="genre")
+    path('genre/<str:genres>', GenreView, name="genre"),
+    path('comments/', include('django_comments.urls')),
 
 
 
