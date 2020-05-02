@@ -5,7 +5,7 @@ from django.conf.urls import include
 
 
 urlpatterns = [
-	path('<slug:slug>', ReviewerBioView, name='reviewer'),
+	path('<slug:slug>', ReviewerBioView.as_view(), name='reviewer'),
 
 
 

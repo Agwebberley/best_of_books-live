@@ -3,6 +3,7 @@ from django.db.models import Q
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Reviewer
 from django.urls import reverse_lazy
+from mainapp.models import Post
 # Create your views here.
 
 
